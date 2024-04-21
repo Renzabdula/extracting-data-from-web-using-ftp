@@ -1,0 +1,31 @@
+1. git init .  ==> initialize git
+
+2. python -m venv env  ==> creating virtual env as env
+
+3. .\env\Scripts\Activate.ps1  ==> activating environment in powershell
+
+4. requirements.txt  ==> listing packages for installation in venv ex. pandas, pyarrow
+
+5. (env)  pip install -r .\requirements.txt  ==> installint the packages listed in requirements
+
+6. .gitignore  ==> create gitignore  file then paste the /env
+
+7. in the env folder. Go to Activate.ps1 then save the credentials below 
+
+# Add the venv to the PATH
+Copy-Item -Path Env:PATH -Destination Env:_OLD_VIRTUAL_PATH
+$Env:PATH = "$VenvExecDir$([System.IO.Path]::PathSeparator)$Env:PATH"
+
+	# FTP Environment Variables
+	$Env:FTPHOST = "172.24.203.113"
+	$Env:FTPUSER = "ftpuser"
+	$Env:FTPPASS = "password"
+	$Env:FTPPORT = 21
+
+
+OR
+
+save it to the systems environment variables in start menu
+
+
+8. ls /home/ftpuser/ -l		==> to check the content of the directory
