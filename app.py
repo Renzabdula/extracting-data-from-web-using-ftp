@@ -44,6 +44,7 @@ def pipeline():
     for source_name, source_config in config.items():
         file_name = Path(source_name + ".CSV")
         df = read_csv(source_config)
+        
         df.to_csv(file_name, index=False)
 
         print(f'File {file_name} has been downloaded')

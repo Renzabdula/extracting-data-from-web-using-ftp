@@ -28,9 +28,8 @@ Extracting data from web to FTP
 	adduser <ftpuser>  ==> creating your choice user - i use ftpuser
 	-- password  ==> password
 
-	mkdir/home/ftpuser/ftp  ==> create a folder
-	chown nobody:nogroup /home/ftpuser/ftp  ==> changing ownership
-	chmod a-w /home/ftpuser/ftp  ==> revoking of other user to our folder
-	sudo tee -a /etc/vsftpd.chroot_list  ==> add a new user to vsftpd.chroot_list
-	
+	mkdir/home/ftpuser/ftp  ==> create a directory inside the the '/home/ftpuser' directory. This is where will be the storage of ftp files	
+	chown nobody:nogroup /home/ftpuser/ftp  ==> This command changes the ownership of the newly created ftp directory to the user nobody and the group nogroup. This is often done to ensure that the FTP server process runs with minimal privileges for security reasons.
+	chmod a-w /home/ftpuser/ftp  ==> This command revokes write (w) permission for all (a) users on the ftp directory. This means that users other than the owner and group members won't be able to write to this directory.
+	sudo tee -a /etc/vsftpd.chroot_list  ==> This command appends (-a flag) the name of a user (likely the ftpuser) to the file /etc/vsftpd.chroot_list. The vsftpd.chroot_list file is used to specify which users are jailed to their home directories upon FTP login, meaning they can't navigate outside of their home directory. Adding a user to this list ensures that they are restricted to their home directory when accessing the FTP server.
 
